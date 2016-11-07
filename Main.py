@@ -21,7 +21,7 @@ def run_parser(parsing_table, cfg_table, input_str):
             stack.extend([popped_char, read_char, temp_parsed_value[1:]]) # temp_parsed_value[1:] accounts for digits like 14 (use of string slicing)
 
             # printing our matches for every instance of a read/accepted char
-            print('match: ' + popped_char + '\tstack: ' + stack.__str__())
+            print('Match!' + '\tpopped_char: ' + popped_char + '\tread_char: ' + read_char + '\tstack: ' + stack.__str__())
 
             i += 1 # increment our index for str_list
             read_char = str_list[i] # update read_char
@@ -42,6 +42,8 @@ def run_parser(parsing_table, cfg_table, input_str):
             read_char = rule_dict['lhs']
 
         elif temp_parsed_value == 'undef':
+            # printing our failed match
+            print('Fail!' + '\tpopped_char: ' + popped_char + '\tread_char: ' + read_char + '\tstack: ' + stack.__str__())
             print('Your string is NOT valid for the given language!:', input_str)
             return
         elif temp_parsed_value == 'ACCEPT':
@@ -278,18 +280,19 @@ if __name__ == '__main__':
 Sample Output:
 
 Parsing String #1:  (i+i)*i$
-Match! popped_char: 0	read_char: (	stack: ['0', '(', '4']
-Match! popped_char: 4	read_char: i	stack: ['0', '(', '4', 'i', '5']
-Match! popped_char: 10	read_char: +	stack: ['0', '(', '4', 'E', '10', '+', '6']
-Match! popped_char: 6	read_char: i	stack: ['0', '(', '4', 'E', '10', '+', '6', 'i', '5']
-Match! popped_char: 10	read_char: )	stack: ['0', '(', '4', 'E', '10', ')', '15']
-Match! popped_char: 2	read_char: *	stack: ['0', 'T', '2', '*', '8']
-Match! popped_char: 8	read_char: i	stack: ['0', 'T', '2', '*', '8', 'i', '5']
+Match!	popped_char: 0	read_char: (	stack: ['0', '(', '4']
+Match!	popped_char: 4	read_char: i	stack: ['0', '(', '4', 'i', '5']
+Match!	popped_char: 10	read_char: +	stack: ['0', '(', '4', 'E', '10', '+', '6']
+Match!	popped_char: 6	read_char: i	stack: ['0', '(', '4', 'E', '10', '+', '6', 'i', '5']
+Match!	popped_char: 10	read_char: )	stack: ['0', '(', '4', 'E', '10', ')', '15']
+Match!	popped_char: 2	read_char: *	stack: ['0', 'T', '2', '*', '8']
+Match!	popped_char: 8	read_char: i	stack: ['0', 'T', '2', '*', '8', 'i', '5']
 Your string IS valid for the given language!: (i+i)*i$
 
 Parsing String #2:  (i*)$
-Match! popped_char: 0	read_char: (	stack: ['0', '(', '4']
-Match! popped_char: 4	read_char: i	stack: ['0', '(', '4', 'i', '5']
-Match! popped_char: 2	read_char: *	stack: ['0', '(', '4', 'T', '2', '*', '8']
+Match!	popped_char: 0	read_char: (	stack: ['0', '(', '4']
+Match!	popped_char: 4	read_char: i	stack: ['0', '(', '4', 'i', '5']
+Match!	popped_char: 2	read_char: *	stack: ['0', '(', '4', 'T', '2', '*', '8']
+Fail!	popped_char: 8	read_char: )	stack: ['0', '(', '4', 'T', '2', '*']
 Your string is NOT valid for the given language!: (i*)$
 '''
