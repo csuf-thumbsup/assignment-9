@@ -57,7 +57,6 @@ def run_parser(parsing_table, cfg_table, input_str):
             read_char = str_list[i]
 
 if __name__ == '__main__':
-    # Data for Problem #1
 
     parsing_table = {
         '0': {'i': 'S5',
