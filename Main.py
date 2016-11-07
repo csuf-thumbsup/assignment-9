@@ -278,18 +278,18 @@ if __name__ == '__main__':
 Sample Output:
 
 Parsing String #1:  (i+i)*i$
-match: 0	stack: ['0', '(', '4']
-match: 4	stack: ['0', '(', '4', 'i', '5']
-match: 10	stack: ['0', '(', '4', 'E', '10', '+', '6']
-match: 6	stack: ['0', '(', '4', 'E', '10', '+', '6', 'i', '5']
-match: 10	stack: ['0', '(', '4', 'E', '10', ')', '15']
-match: 2	stack: ['0', 'T', '2', '*', '8']
-match: 8	stack: ['0', 'T', '2', '*', '8', 'i', '5']
+Match! popped_char: 0	read_char: (	stack: ['0', '(', '4']
+Match! popped_char: 4	read_char: i	stack: ['0', '(', '4', 'i', '5']
+Match! popped_char: 10	read_char: +	stack: ['0', '(', '4', 'E', '10', '+', '6']
+Match! popped_char: 6	read_char: i	stack: ['0', '(', '4', 'E', '10', '+', '6', 'i', '5']
+Match! popped_char: 10	read_char: )	stack: ['0', '(', '4', 'E', '10', ')', '15']
+Match! popped_char: 2	read_char: *	stack: ['0', 'T', '2', '*', '8']
+Match! popped_char: 8	read_char: i	stack: ['0', 'T', '2', '*', '8', 'i', '5']
 Your string IS valid for the given language!: (i+i)*i$
 
 Parsing String #2:  (i*)$
-match: 0	stack: ['0', '(', '4']
-match: 4	stack: ['0', '(', '4', 'i', '5']
-match: 2	stack: ['0', '(', '4', 'T', '2', '*', '8']
+Match! popped_char: 0	read_char: (	stack: ['0', '(', '4']
+Match! popped_char: 4	read_char: i	stack: ['0', '(', '4', 'i', '5']
+Match! popped_char: 2	read_char: *	stack: ['0', '(', '4', 'T', '2', '*', '8']
 Your string is NOT valid for the given language!: (i*)$
 '''
