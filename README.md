@@ -20,5 +20,5 @@ Given the following CFG and the LR Parsing table. Write a program to trace the f
       Match!	popped_char: 0	read_char: (	stack: ['0', '(', '4']
       Match!	popped_char: 4	read_char: i	stack: ['0', '(', '4', 'i', '5']
       Match!	popped_char: 2	read_char: *	stack: ['0', '(', '4', 'T', '2', '*', '8']
-      Fail!	popped_char: 8	read_char: )	stack: ['0', '(', '4', 'T', '2', '*']
+      Fail! 	popped_char: 8	read_char: )	stack: ['0', '(', '4', 'T', '2', '*']
       Your string is NOT valid for the given language!: (i*)$
